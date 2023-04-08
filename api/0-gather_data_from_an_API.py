@@ -11,8 +11,8 @@ if __name__ == "__main__":
     response = requests.get(api_url)
     employee_name = response.json()['name']
 
-    api_url1 = f"https://jsonplaceholder.typicode.com"
-    "/todos?userId={employee_id}"
+    api_url1 = (f"https://jsonplaceholder.typicode.com"
+                f"/todos?userId={employee_id}")
     new_response = requests.get(api_url1)
     total_number_of_tasks = len(new_response.json())
 
@@ -27,6 +27,6 @@ if __name__ == "__main__":
             completed_title.append(item['title'])
 
     print(f"Employee {employee_name} is done with tasks"
-          "({number_of_done_tasks}/{total_number_of_tasks}):")
+          f"({number_of_done_tasks}/{total_number_of_tasks}):")
     for title in completed_title:
         print(f"\t {title}")
