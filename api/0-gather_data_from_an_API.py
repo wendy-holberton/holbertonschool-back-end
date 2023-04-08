@@ -8,32 +8,27 @@ import sys
 
 
 if __name__ = "__main__":
+    employee_id = sys.argv[1]
+    api_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    response = requests.get(api_url)
+    employee_name = response.json()['name']
 
-    def employee_todo_list(employee_id):
-        """define employee_todo_list function passing argument employee_id"""
+    api_url1 = f"https://jsonplaceholder.typicode.com"
+    "/todos?userId={employee_id}"
+    new_response = requests.get(api_url1)
+    total_number_of_tasks = len(new_response.json())
 
-        api_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-        response = requests.get(api_url)
-        employee_name = response.json()['name']
+    number_of_done_tasks = 0
+    completed_title = 0
 
-        api_url1 = f"https://jsonplaceholder.typicode.com"
-        "/todos?userId={employee_id}"
-        new_response = requests.get(api_url1)
-        total_number_of_tasks = len(new_response.json())
+    completed_title = []
 
-        number_of_done_tasks = 0
-        completed_title = 0
+    for item in new_response.json():
+        if item['completed'] is True:
+            number_of_done_tasks = number_of_done_tasks + 1
+            completed_title.append(item['title'])
 
-        completed_title = []
-
-        for item in new_response.json():
-            if item['completed'] is True:
-                number_of_done_tasks = number_of_done_tasks + 1
-                completed_title.append(item['title'])
-
-        print(f"Employee {employee_name} is done with tasks"
-              "({number_of_done_tasks}/{total_number_of_tasks}):")
-        for title in completed_title:
-            print(f"\t {title}")
-
-employee_todo_list(sys.argv[1])
+    print(f"Employee {employee_name} is done with tasks"
+          "({number_of_done_tasks}/{total_number_of_tasks}):")
+    for title in completed_title:
+        print(f"\t {title}")
