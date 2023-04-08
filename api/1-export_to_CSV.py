@@ -22,7 +22,7 @@ if __name__ == "__main__":
     new_response = requests.get(api_url1)
     data = new_response.json()
     # name of csv file
-    filename = "USER_ID.csv"
+    filename = f"{employee_id}.csv"
 
     # write to csv file
     with open(filename, 'w', newline='') as file:
