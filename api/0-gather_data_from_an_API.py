@@ -3,8 +3,8 @@
 Gather data from API
 """
 
-import requests
 import sys
+import requests
 
 
 def employee_todo_list(employee_id):
