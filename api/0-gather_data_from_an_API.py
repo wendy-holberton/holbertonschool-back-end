@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-"""
-Gather data from API
-"""
+"""Gather data from API"""
 
 import requests
 import sys
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     employee_id = sys.argv[1]
     api_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
     response = requests.get(api_url)
