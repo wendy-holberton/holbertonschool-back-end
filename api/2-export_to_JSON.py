@@ -7,9 +7,6 @@ import sys
 
 
 if __name__ == "__main__":
-    # field names
-    fields = {"USER_ID": [{"task": "TASK_TITLE", "completed":
-"TASK_COMPLETED_STATUS", "username": "USERNAME"}]}
     employee_id = sys.argv[1]
     api_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
     response = requests.get(api_url)
